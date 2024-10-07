@@ -65,7 +65,7 @@ const Home = () => {
             backgroundColor: 'inherit' 
           }}>
           <img
-            src="src/assets/alamin.jpeg" 
+            src="../src/assets/alamin.jpeg" 
             alt="Alamin"
             className="w-80 h-80 object-cover transition-transform duration-500 hover:scale-110"
             style={{
