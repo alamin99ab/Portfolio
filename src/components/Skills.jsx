@@ -2,15 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';  // Import framer-motion
 
 const skillsData = [
-  { name: 'HTML', level: 'Intermediate', image: '../src/assets/html.png' },
-  { name: 'CSS', level: 'Intermediate', image: '../src/assets/css.png' },
-  { name: 'JavaScript', level: 'Beginner', image: '../src/assets/js.png' },
-  { name: 'React.js', level: 'Beginner', image: '../src/assets/react.png' },
-  { name: 'Node.js', level: 'Beginner', image: '../src/assets/nodejs.png' },
-  { name: 'Express.js', level: 'Beginner', image: '../src/assets/express.png' },
-  { name: 'MongoDB', level: 'Beginner', image: '../src/assets/mongodb.png' },
-  { name: 'Tailwind CSS', level: 'Intermediate', image: '../src/assets/tailwind.png' },
-  { name: 'GIT Git Hub', level: 'Intermediate', image: '../src/assets/git.png' },
+  { name: 'HTML', level: 'Intermediate', image: 'https://i.postimg.cc/FKVzJNWd/html.png' },
+  { name: 'CSS', level: 'Intermediate', image: 'https://i.postimg.cc/L5XJpwVq/css.png' },
+  { name: 'JavaScript', level: 'Beginner', image: 'https://i.postimg.cc/C1M1GXXv/js.png' },
+  { name: 'React.js', level: 'Beginner', image: 'https://i.postimg.cc/GtVm122N/react.png' },
+  { name: 'Node.js', level: 'Beginner', image: 'https://i.postimg.cc/d3LVXdqr/nodejs.png' },
+  { name: 'Express.js', level: 'Beginner', image: 'https://i.postimg.cc/qq5zMwm1/express.png' },
+  { name: 'MongoDB', level: 'Beginner', image: 'https://i.postimg.cc/Kz9YJQym/mongodb.png' },
+  { name: 'Tailwind CSS', level: 'Intermediate', image: 'https://i.postimg.cc/ryPm4hJJ/tailwind.png' },
+  { name: 'GIT Git Hub', level: 'Intermediate', image: 'https://i.postimg.cc/52v6bw8m/git.png' },
 ];
 
 const Skills = () => {
