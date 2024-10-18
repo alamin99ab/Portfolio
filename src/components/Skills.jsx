@@ -15,44 +15,31 @@ const skillsData = [
 
 const Skills = () => {
   return (
-    <div className="min-h-screen bg-gray-900 p-10 flex flex-col items-center" id="skills">
-      <h1 className="text-4xl font-bold text-white mb-8">My Skills</h1>
-
-      <div className="relative overflow-hidden w-full max-w-6xl">
-        <motion.div
-          className="flex space-x-6"
-          // Infinite loop sliding from right to left
-          initial={{ x: 0 }}
-          animate={{ x: '-100%' }}
-          transition={{ 
-            repeat: Infinity, // Repeat forever
-            duration: 20,      // Speed of the animation (adjust as needed)
-            ease: 'linear'     // Linear movement for smooth transition
-          }}
-        >
-          {skillsData.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 min-w-[200px] p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 flex-shrink-0"
-              initial={{ opacity: 0, y: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeInOut' }}
-              viewport={{ once: true }}
-            >
-              <div className="flex flex-col items-center">
-                <img
-                  src={skill.image}
-                  alt={skill.name}
-                  className="w-16 h-16 mb-4 transition duration-300 transform hover:scale-110"
-                />
-                <h2 className="text-2xl font-semibold text-yellow-400 mb-2">
-                  {skill.name}
-                </h2>
-                <p className="text-gray-300">Level: {skill.level}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+    <div className="min-h-screen bg-gray-900 p-6 sm:p-10 flex flex-col items-center" id="skills">
+      <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">My Skills</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl">
+        {skillsData.map((skill, index) => (
+          <motion.div
+            key={index}
+            className="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col items-center">
+              <img
+                src={skill.image}
+                alt={skill.name}
+                className="w-16 h-16 mb-4 transition duration-300 transform hover:scale-110"
+              />
+              <h2 className="text-xl font-semibold text-yellow-400 mb-2">
+                {skill.name}
+              </h2>
+              <p className="text-gray-300">Level: {skill.level}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
