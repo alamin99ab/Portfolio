@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';  // Import the Navbar component
+import Navbar from './components/Navbar'; 
 import Home from './components/Home';
 import About from './components/About';
 import Qualification from './components/Qualification';
@@ -10,9 +10,8 @@ import Contact from './components/Contact';
 function App() {
   return (
     <div>
-      <Navbar /> {/* Add Navbar component here */}
+      <Navbar /> 
 
-      {/* Main Content */}
       <main>
         <Home />
         <About />

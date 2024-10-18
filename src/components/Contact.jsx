@@ -45,8 +45,7 @@ const Contact = () => {
       <h1 className="text-3xl sm:text-4xl font-bold mb-8">Contact Me</h1>
 
       <div className="w-full max-w-4xl flex flex-col lg:flex-row gap-8">
-        
-        {/* Form Section */}
+
         <div className="flex-1 bg-gray-800 p-6 rounded-lg">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -112,7 +111,6 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* Social Links Section */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
           <a 
             href="https://github.com/alamin99ab" 
