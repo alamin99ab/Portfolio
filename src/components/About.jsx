@@ -1,6 +1,6 @@
 import React from 'react';
 import alaminPhoto from '../assets/alamin1.jpg'; 
-import cvFile from '../assets/Alamin_Resume_No_Emojis.pdf'; 
+import cvFile from '../assets/Alamin - Resume _ Ostad CV Builder.pdf'; 
 import { FaDownload } from 'react-icons/fa'; 
 
 const About = () => {

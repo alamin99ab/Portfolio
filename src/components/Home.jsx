@@ -7,9 +7,7 @@ const Home = () => {
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       <div className="flex flex-col lg:flex-row h-full items-center justify-center px-6 md:px-12 text-white pt-20 relative z-10">
-        {/* Left Column for Icons and Text */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-          {/* Social Media Icons */}
           <div className="flex space-x-4 mb-6">
             <a
               href="https://www.linkedin.com/in/md-alamin-a59840319/"
@@ -45,7 +43,6 @@ const Home = () => {
             Currently, I'm learning the MERN stack to take my skills to the next level.
           </p>
 
-          {/* Action Buttons */}
           <div className="mt-4 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
             <a
               href="#contact"
@@ -63,7 +60,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Column for Image */}
         <div className="flex-1 flex items-center justify-center p-4">
           <div
             className="relative p-6 border-4 rounded-full bg-gray-900"
