@@ -1,5 +1,5 @@
 import React from 'react';
-import alaminPhoto from '../assets/alamin1.jpg'; 
+import alaminPhoto from '../assets/image.png'; 
 import cvFile from '../assets/Alamin - Resume _ Ostad CV Builder.pdf'; 
 import { FaDownload } from 'react-icons/fa'; 
 
