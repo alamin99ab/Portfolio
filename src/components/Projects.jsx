@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
 const projects = [
   {
-    title: 'I HAVE NO PROJECT RIGHT NOW',
-    description: '',
-    link: '',
-    image: '', 
-    technologies: '',
+    title: 'Laugh Anytime, Anywhere!',
+    description: 'Enjoy a collection of hilarious jokes at Funny Jokes Hub! Whether you love puns, witty one-liners, or classic humor, this site is your go-to destination for endless laughter. Visit now and brighten your day with the best jokes! 😆🎭',
+    link: 'https://alamin99ab.github.io/ALAMIN/',
+    image: 'https://i.postimg.cc/NjYv89qm/Screenshot-2025-02-19-185617.png', 
+    technologies: 'html, css, javascript',
+  },
+  {
+    title: 'Business Web Solutions – Elevate Your Online Presence',
+    description: 'Business Web Solutions offers cutting-edge website design and development services to help businesses thrive online. Our expertly crafted solutions ensure a seamless user experience, responsive design, and optimized performance. Build your brand with a professional and impactful online presence!',
+    link: 'https://business-websie.vercel.app/',
+    image: 'https://i.ibb.co.com/zVC61YDk/Screenshot-2025-02-19-185753.png', 
+    technologies: 'react.js, tailwindcss',
   },
 ];
 
@@ -46,13 +54,21 @@ const Projects = () => {
             <p className="text-gray-400 italic mb-4">Technologies Used: {technologies}</p>
           </div>
 
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between items-center mt-4">
             <button 
               onClick={handlePrevProject}
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
             >
               <ArrowLeftIcon className="w-6 h-6 text-white" />
             </button>
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+            >
+              Live Preview
+            </a>
             <button 
               onClick={handleNextProject}
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"

@@ -7,8 +7,6 @@ const skillsData = [
   { name: 'JavaScript', level: 'Beginner', image: 'https://i.postimg.cc/C1M1GXXv/js.png' },
   { name: 'React.js', level: 'Beginner', image: 'https://i.postimg.cc/GtVm122N/react.png' },
   { name: 'Node.js', level: 'Beginner', image: 'https://i.postimg.cc/d3LVXdqr/nodejs.png' },
-  { name: 'Express.js', level: 'Beginner', image: 'https://i.postimg.cc/qq5zMwm1/express.png' },
-  { name: 'MongoDB', level: 'Beginner', image: 'https://i.postimg.cc/Kz9YJQym/mongodb.png' },
   { name: 'Tailwind CSS', level: 'Intermediate', image: 'https://i.postimg.cc/ryPm4hJJ/tailwind.png' },
   { name: 'GIT Git Hub', level: 'Intermediate', image: 'https://i.postimg.cc/52v6bw8m/git.png' },
 ];
