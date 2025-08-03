@@ -1,5 +1,5 @@
 import React from 'react';
-import cvFile from '../assets/Alamin - Resume _ Ostad CV Builder.pdf'; 
+import cvFile from '../assets/Alamin - CVr.pdf'; 
 import { FaDownload } from 'react-icons/fa'; 
 
 const About = () => {
@@ -8,7 +8,7 @@ const About = () => {
       
       <div className="flex-1 flex justify-center mb-8 lg:mb-0">
       <img 
-  src="https://scontent.fdac14-1.fna.fbcdn.net/v/t39.30808-6/476753194_1129616435558978_3552198489983614072_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGuITultCaUKCkcJ7CImdJxP04aVt1z_O4_ThpW3XP87uP4bc_tJ8hkUvI1bURIgtkTzjxQogdstxfZmS74GFdq&_nc_ohc=-YZl4KHKo_oQ7kNvgHs0hNs&_nc_oc=Adg1ZAwjSQS5xhwBjIDiSKsSSRwgmCOW8L3fC4xp1_NCWd99E3P1CeX8KAWBC0Jzvo8&_nc_zt=23&_nc_ht=scontent.fdac14-1.fna&_nc_gid=AW-R-O8E1T8WxTB4mvKShlA&oh=00_AYBvgQbjihufp47duKzF-lo--knNPmTihxM5_QaKR3Cjbw&oe=67B7657B" 
+  src="https://i.postimg.cc/CLxvQcyS/Whats-App-Image-2025-08-03-at-14-25-18-9ded5020.jpg" 
   alt="Alamin" 
   className="w-40 h-56 sm:w-60 sm:h-80 md:w-72 md:h-96 object-cover rounded-lg border-4 border-blue-500"
 />

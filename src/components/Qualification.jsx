@@ -9,7 +9,7 @@ const Education = () => {
           <div className="border-l-4 border-yellow-400 pl-4">
             <h3 className="text-2xl font-semibold">Ostad</h3>
             <p className="text-lg">Web Design And Development (MEARN STACK)</p>
-            <p className="text-sm text-gray-400">Expected Graduation: Ongoing</p>
+            <p className="text-sm text-gray-400">Expected Graduation:Done</p>
           </div>
           <div className="border-l-4 border-yellow-400 pl-4">
             <h3 className="text-2xl font-semibold">City Polytechnic Institute</h3>

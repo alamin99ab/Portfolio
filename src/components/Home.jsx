@@ -69,7 +69,7 @@ const Home = () => {
             }}
           >
             <img
-              src="https://scontent.fdac14-1.fna.fbcdn.net/v/t39.30808-6/480666353_1132215255299096_5349943944667895573_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFTBtYNzbChBw30qSRAhz9Gqhqb7CyDwzaqGpvsLIPDNkfr0FmYTi0hrk5SopOyEv9XGmsYymVlevSJXqVdyV-9&_nc_ohc=fru9ROoby_cQ7kNvgE4Q0g5&_nc_oc=AdgJ0u0NLAZP9G5jHfvBe_KHq8Uy7Sr3JVbtfSwEdxgWIG4ObwQyDLZ5shLtXsSCogg&_nc_zt=23&_nc_ht=scontent.fdac14-1.fna&_nc_gid=APANLKkFlb7j4zI2adoNpOD&oh=00_AYB1QA9eD1HlYX4_1b3wmOtFIy78-ECpj_JV-bC-fDQNEA&oe=67B791B9"
+              src="https://i.postimg.cc/mkJFVZfc/Whats-App-Image-2025-08-03-at-14-29-01-522ba05c.jpg"
               alt="Alamin"
               className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover transition-transform duration-500 hover:scale-110"
               style={{ clipPath: 'circle(50%)' }}
