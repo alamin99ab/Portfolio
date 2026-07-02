@@ -39,9 +39,19 @@ const Home = () => {
    <GithubIcon className="w-8 h-8" /> </a>
    <a href="https://www.facebook.com/alamin009j"target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition duration-300" > <FacebookIcon className="w-8 h-8" /> </a>
    </div>
-
-  <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-left"> I'm ALAMIN: Network Engineer </h1>
- <p className="text-sm md:text-lg mb-6 animate-slide-in-left-delayed"> A Diploma Engineer focused on **Network Engineering** and **System Maintenance**. I configure LAN/WAN, manage IP addressing, and troubleshoot infrastructure while building dynamic web applications using the **MERN Stack**. </p>
+       <h1
+    className="text-5xl md:text-7xl font-extrabold text-white leading-tight
+    animate-slide-up"
+  >
+    ALAMIN
+  </h1>
+  <h2
+    className="mt-3 text-2xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-green-400 to-blue-500 bg-clip-text text-transparent
+    animate-slide-up delay-200"
+  >
+    Network Engineer • MERN Stack Developer
+  </h2>
+ <p className="text-sm md:text-lg mb-6 animate-slide-in-left-delayed">I'm a Diploma Engineer passionate about building secure, efficient, and scalable IT solutions. My expertise includes network configuration, LAN/WAN deployment, IP addressing, routing, network troubleshooting, and system maintenance. In addition, I develop modern full-stack web applications using the MERN Stack, combining strong networking fundamentals with practical software engineering skills.</p>
  <div className="mt-4 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4"> <a href="#contact" className="flex items-center px-4 py-2 bg-green-500 hover:bg-green-700 text-white rounded-lg transition duration-300" > <ChatBubbleOvalLeftEllipsisIcon className="w-5 h-5 mr-2" /> Say Hello </a>
    <a href="#projects" className="flex items-center justify-center p-2 bg-blue-500 hover:bg-blue-700 rounded-full transition duration-300" > <ArrowRightIcon className="w-5 h-5" /> </a>
    </div>
