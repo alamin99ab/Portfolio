@@ -1,167 +1,179 @@
-import React, { useState } from 'react';
-import { FaGithub, FaWhatsapp, FaFacebook, FaInstagram, FaEnvelope } from 'react-icons/fa'; 
-import emailjs from 'emailjs-com'; 
+import { useState } from 'react';
+import { FaEnvelope, FaFacebook, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
+
+const socials = [
+  {
+    label: 'GitHub',
+    detail: 'View my code and projects',
+    href: 'https://github.com/alamin99ab',
+    icon: <FaGithub />,
+    accent: 'text-white',
+  },
+  {
+    label: 'WhatsApp',
+    detail: 'Chat with me',
+    href: 'https://wa.me/8801778060662',
+    icon: <FaWhatsapp />,
+    accent: 'text-emerald-300',
+  },
+  {
+    label: 'Facebook',
+    detail: 'Connect on Facebook',
+    href: 'https://www.facebook.com/alamin009j',
+    icon: <FaFacebook />,
+    accent: 'text-blue-300',
+  },
+  {
+    label: 'Instagram',
+    detail: 'Find me on Instagram',
+    href: 'https://www.instagram.com/al_am.in009/',
+    icon: <FaInstagram />,
+    accent: 'text-pink-300',
+  },
+  {
+    label: 'Email',
+    detail: 'mdalaminhossin899@gmail.com',
+    href: 'mailto:mdalaminhossin899@gmail.com',
+    icon: <FaEnvelope />,
+    accent: 'text-cyan-200',
+  },
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
-  const [sent, setSent] = useState(false); 
+  const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSent(false);
+    setError(false);
 
-    emailjs.send(
-      'service_g2kkbv4',
-      'template_tlbxfgk', 
-      formData, 
-      'mJPCU3GIS8ub7eU7k' 
-    )
-    .then(() => {
-      setSent(true); 
-      setError(false); 
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    emailjs
+      .send('service_g2kkbv4', 'template_tlbxfgk', formData, 'mJPCU3GIS8ub7eU7k')
+      .then(() => {
+        setSent(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch(() => {
+        setError(true);
       });
-    })
-    .catch(() => {
-      setError(true); 
-    });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6 lg:p-10" id="contact">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8">Contact Me</h1>
-
-      <div className="w-full max-w-4xl flex flex-col lg:flex-row gap-8">
-
-        <div className="flex-1 bg-gray-800 p-6 rounded-lg">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block mb-2 text-sm">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="subject" className="block mb-2 text-sm">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Subject"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block mb-2 text-sm">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Message"
-                rows="4"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full p-3 bg-blue-500 hover:bg-blue-700 text-white rounded-lg transition duration-300"
-            >
-              Send Message
-            </button>
-            {sent && <p className="text-green-500 mt-4">Message sent successfully!</p>}
-            {error && <p className="text-red-500 mt-4">Failed to send message. Try again later.</p>}
-          </form>
+    <section id="contact" className="section-shell scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center">
+          <p className="section-kicker">Let’s connect</p>
+          <h2 className="section-title">Contact me</h2>
+          <p className="muted-copy mx-auto mt-4 max-w-2xl">
+            Have an opportunity or a question about network support? Send me a message.
+          </p>
         </div>
 
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-          <a 
-            href="https://github.com/alamin99ab" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition duration-300 flex flex-col items-center justify-center"
-          >
-            <FaGithub size={40} className="mb-2" />
-            <span>GitHub</span>
-          </a>
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="glass-panel rounded-3xl p-6 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-2 block text-sm text-slate-300">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="glass-input"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-sm text-slate-300">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="glass-input"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="subject" className="mb-2 block text-sm text-slate-300">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="glass-input"
+                  placeholder="What would you like to discuss?"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="mb-2 block text-sm text-slate-300">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="glass-input resize-y"
+                  placeholder="Write your message..."
+                  rows={5}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full rounded-xl bg-cyan-300 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-200"
+              >
+                Send message
+              </button>
+              {sent && <p className="text-sm text-emerald-300" role="status">Message sent successfully!</p>}
+              {error && <p className="text-sm text-rose-300" role="alert">Failed to send message. Please try again later.</p>}
+            </form>
+          </div>
 
-          <a 
-            href="https://wa.me/+8801778060662" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-4 bg-green-500 hover:bg-green-600 text-white rounded-lg transition duration-300 flex flex-col items-center justify-center"
-          >
-            <FaWhatsapp size={40} className="mb-2" />
-            <span>WhatsApp</span>
-          </a>
-
-          <a 
-            href="https://www.facebook.com/alamin009j" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition duration-300 flex flex-col items-center justify-center"
-          >
-            <FaFacebook size={40} className="mb-2" />
-            <span>Facebook</span>
-          </a>
-
-          <a 
-            href="https://www.instagram.com/al_am.in009/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-4 bg-pink-500 hover:bg-pink-600 text-white rounded-lg transition duration-300 flex flex-col items-center justify-center"
-          >
-            <FaInstagram size={40} className="mb-2" />
-            <span>Instagram</span>
-          </a>
-
-          <a 
-            href="mailto:mdy017192@gmail.com" 
-            className="p-4 bg-red-500 hover:bg-red-600 text-white rounded-lg transition duration-300 flex flex-col items-center justify-center"
-          >
-            <FaEnvelope size={40} className="mb-2" />
-            <span>Gmail</span>
-          </a>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target={social.href.startsWith('mailto:') ? undefined : '_blank'}
+                rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                className="glass-panel glass-interactive flex items-center gap-4 rounded-2xl p-4"
+              >
+                <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-xl ${social.accent}`}>
+                  {social.icon}
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-semibold text-white">{social.label}</span>
+                  <span className="mt-1 block break-words text-sm text-slate-400">{social.detail}</span>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
+        <footer className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-500">
+          © {new Date().getFullYear()} Alamin. Built with care.
+        </footer>
       </div>
-    </div>
+    </section>
   );
 };
 

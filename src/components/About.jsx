@@ -1,85 +1,110 @@
-import React from 'react';
+import { ArrowDownTrayIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import cvUrl from '../assets/Alamin_CV.pdf';
 
-// PDF placed in public folder
-const cvPath = '/Alamin.pdf';
+const facts = [
+  {
+    icon: <FaEnvelope />,
+    label: 'Email',
+    value: 'mdalaminhossin899@gmail.com',
+    href: 'mailto:mdalaminhossin899@gmail.com',
+  },
+  {
+    icon: <FaPhoneAlt />,
+    label: 'Phone',
+    value: '+880 1778-060662',
+    href: 'tel:+8801778060662',
+  },
+  {
+    icon: <FaMapMarkerAlt />,
+    label: 'Location',
+    value: 'Kalaroa, Satkhira, Bangladesh',
+  },
+];
 
-const About = () => {
-  return (
-    <section
-      id="about"
-      className="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-gray-900 text-white p-6 lg:p-12"
-    >
-      {/* Profile Image */}
-      <div className="flex-1 flex justify-center mb-8 lg:mb-0">
-        <img
-          src="https://i.postimg.cc/CLxvQcyS/Whats-App-Image-2025-08-03-at-14-25-18-9ded5020.jpg"
-          alt="Alamin"
-          className="w-40 h-56 sm:w-60 sm:h-80 md:w-72 md:h-96 object-cover rounded-lg border-4 border-blue-500 shadow-xl transition-transform duration-500 hover:scale-105"
-        />
-      </div>
-
-      {/* About Text */}
-      <div className="flex-1 max-w-2xl text-center lg:text-left space-y-4">
-        <h1 className="text-3xl sm:text-4xl font-bold text-blue-400">
-          About Me
-        </h1>
-
-        <p>
-          Hi there! I'm <b>Alamin</b>, a highly motivated <b>Diploma Engineer in Computer Science & Technology</b>. 
-          My core passion lies in <b>Network Engineering</b> and <b>System Maintenance</b>, ensuring seamless connectivity 
-          and reliable infrastructure.
+const About = () => (
+  <section id="about" className="section-shell scroll-mt-24">
+    <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="glass-panel rounded-3xl p-7 sm:p-9">
+        <p className="section-kicker">A little about me</p>
+        <h2 className="section-title">Connecting people and technology.</h2>
+        <p className="muted-copy mt-5">
+          I’m a Diploma Engineer in Computer Science and Technology focused on
+          networking and ISP support. I enjoy tracing connectivity problems
+          from the customer side through LAN/WAN, ONU/CPE, and network services,
+          then working with technical teams to get people back online.
+        </p>
+        <p className="muted-copy mt-4">
+          My experience includes L1 customer support, an ISP operations
+          internship, and practical training in MikroTik configuration and
+          hardware troubleshooting. I’m strengthening my network engineering
+          foundation through CCNA and MTCNA studies, while continuing to build
+          web applications with the MERN stack.
         </p>
 
-        <p>
-          I have strong hands-on skills in <b>LAN/WAN configuration</b>, <b>IP Addressing, Subnetting, OSPF, and DHCP</b>. 
-          I understand key protocols like <b>OSI Model</b> and <b>TCP/IP</b>, allowing me to troubleshoot and manage 
-          complex networks. I'm actively pursuing <b>CCNA and MTCNA</b> to strengthen my expertise.
-        </p>
-
-        <p>
-          Beyond networking, I excel in <b>PC Assembly, System Troubleshooting, and OS Installation</b>. 
-          I also have experience in <b>Web Development</b> using the <b>MERN stack</b> to build dynamic web applications.
-        </p>
-
-        <p>
-          I'm a dedicated problem-solver who thrives in collaborative environments. 
-          My goal is to leverage my networking and development skills to contribute meaningfully to technology.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 mt-6 justify-center lg:justify-start">
+        <div className="mt-7 flex flex-wrap gap-3">
           <a
-            href="/"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold shadow-md transition transform hover:scale-102 active:scale-95"
-          >
-            Back to Home
-          </a>
-
-          <a
-            href={cvPath}
+            href={cvUrl}
             download="Alamin_CV.pdf"
-            className="px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg font-semibold shadow-md flex items-center justify-center transition transform hover:scale-102 active:scale-95"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-300 px-4 py-3 font-semibold text-slate-950 transition hover:bg-cyan-200"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
-            Download Resume
+            <ArrowDownTrayIcon className="h-5 w-5" />
+            Download CV
+          </a>
+          <a
+            href={cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.05] px-4 py-3 font-semibold text-white transition hover:bg-white/10"
+          >
+            <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+            View CV
           </a>
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {facts.map(({ icon, label, value, href }) => {
+          const content = (
+            <>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-200/15 bg-cyan-300/10 text-cyan-200">
+                {icon}
+              </span>
+              <span className="mt-4 block text-sm text-slate-400">{label}</span>
+              <span className="mt-1 block break-words font-medium text-white">{value}</span>
+            </>
+          );
+
+          return href ? (
+            <a
+              key={label}
+              href={href}
+              className="glass-panel glass-interactive rounded-2xl p-5"
+            >
+              {content}
+            </a>
+          ) : (
+            <div key={label} className="glass-panel rounded-2xl p-5">
+              {content}
+            </div>
+          );
+        })}
+        <div className="glass-panel rounded-2xl p-5 sm:col-span-2">
+          <p className="section-kicker">What I bring</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {['Customer support', 'Network troubleshooting', 'MikroTik basics', 'MERN stack'].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-sm text-slate-200"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default About;

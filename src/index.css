@@ -1,3 +1,328 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  background: #080c17;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply min-w-[320px] bg-[#080c17] text-slate-100 antialiased;
+  margin: 0;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  z-index: 0;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 9999px;
+  content: "";
+  filter: blur(110px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+body::before {
+  top: 4rem;
+  left: -12rem;
+  background: #0ea5e9;
+}
+
+body::after {
+  right: -12rem;
+  bottom: 2rem;
+  background: #8b5cf6;
+}
+
+::selection {
+  color: #04111c;
+  background: #67e8f9;
+}
+
+@layer components {
+  .section-shell {
+    @apply relative px-5 py-24 sm:px-8 lg:px-12;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/[0.06] shadow-[0_20px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl;
+  }
+
+  .glass-interactive {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-cyan-200/30 hover:bg-white/[0.09];
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300;
+  }
+
+  .section-title {
+    @apply mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl;
+  }
+
+  .muted-copy {
+    @apply leading-relaxed text-slate-300;
+  }
+
+  .glass-input {
+    @apply w-full rounded-xl border border-white/10 bg-slate-950/50 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-2 focus:ring-cyan-300/20;
+  }
+}
+
+.network-scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  overflow: clip;
+  place-items: center;
+  perspective: 900px;
+  pointer-events: none;
+}
+
+.network-orbit {
+  position: absolute;
+  width: min(92%, 25rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(103 232 249 / 13%);
+  border-radius: 50%;
+  transform: rotateX(69deg) rotateZ(-24deg);
+  transform-style: preserve-3d;
+  animation: network-orbit-spin 24s linear infinite;
+}
+
+.network-orbit::before,
+.network-orbit::after {
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgb(167 139 250 / 16%);
+  border-radius: 50%;
+  content: "";
+  transform: rotateY(58deg);
+}
+
+.network-orbit::after {
+  inset: 17%;
+  border-color: rgb(103 232 249 / 12%);
+  transform: rotateY(-58deg);
+}
+
+.network-orbit__node {
+  position: absolute;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 2px solid #cffafe;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 18px rgb(34 211 238 / 90%);
+}
+
+.network-orbit__node--one {
+  top: 13%;
+  left: 20%;
+}
+
+.network-orbit__node--two {
+  top: 46%;
+  right: 2%;
+  border-color: #ddd6fe;
+  background: #a78bfa;
+  box-shadow: 0 0 18px rgb(167 139 250 / 90%);
+}
+
+.network-orbit__node--three {
+  bottom: 8%;
+  left: 35%;
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.network-globe {
+  position: relative;
+  width: min(74%, 20rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(103 232 249 / 20%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 34% 30%, rgb(103 232 249 / 17%), transparent 43%),
+    radial-gradient(ellipse at 68% 70%, rgb(139 92 246 / 13%), transparent 47%),
+    rgb(8 12 23 / 32%);
+  box-shadow:
+    inset -20px -18px 60px rgb(139 92 246 / 11%),
+    inset 16px 12px 45px rgb(103 232 249 / 8%),
+    0 0 65px rgb(34 211 238 / 8%);
+  transform: rotateX(10deg);
+  transform-style: preserve-3d;
+  animation: network-globe-float 7s ease-in-out infinite;
+}
+
+.network-globe__meridian,
+.network-globe__latitude {
+  position: absolute;
+  border: 1px solid rgb(103 232 249 / 22%);
+  border-radius: 50%;
+  inset: 0;
+}
+
+.network-globe__meridian--one {
+  transform: rotateY(50deg);
+}
+
+.network-globe__meridian--two {
+  border-color: rgb(167 139 250 / 24%);
+  transform: rotateY(-50deg);
+}
+
+.network-globe__meridian--three {
+  transform: rotateY(75deg);
+}
+
+.network-globe__latitude--one {
+  inset: 23% 0;
+  border-color: rgb(103 232 249 / 16%);
+  transform: rotateX(63deg);
+}
+
+.network-globe__latitude--two {
+  inset: 23% 0;
+  border-color: rgb(167 139 250 / 18%);
+  transform: rotateX(-63deg);
+}
+
+.network-globe__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #a5f3fc;
+  box-shadow: 0 0 14px 4px rgb(34 211 238 / 55%);
+  transform: translate(-50%, -50%);
+}
+
+.network-profile {
+  animation: network-profile-float 6s ease-in-out infinite;
+  box-shadow:
+    0 30px 90px rgb(0 0 0 / 40%),
+    0 0 36px rgb(34 211 238 / 9%);
+  transform-style: preserve-3d;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.network-profile:hover {
+  box-shadow:
+    0 36px 100px rgb(0 0 0 / 48%),
+    0 0 54px rgb(34 211 238 / 17%);
+  transform: perspective(900px) rotateY(-4deg) rotateX(2deg) translateY(-4px);
+}
+
+.network-float-card {
+  animation: network-card-float 5s ease-in-out infinite;
+}
+
+.network-float-card:nth-last-child(1) {
+  animation-delay: -2.5s;
+}
+
+.network-status-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 12px rgb(74 222 128 / 75%);
+  animation: network-status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes network-orbit-spin {
+  from {
+    transform: rotateX(69deg) rotateZ(-24deg);
+  }
+  to {
+    transform: rotateX(69deg) rotateZ(336deg);
+  }
+}
+
+@keyframes network-globe-float {
+  0%,
+  100% {
+    transform: rotateX(10deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(10deg) translateY(-9px);
+  }
+}
+
+@keyframes network-profile-float {
+  0%,
+  100% {
+    transform: perspective(900px) rotateY(-2deg) translateY(0);
+  }
+  50% {
+    transform: perspective(900px) rotateY(2deg) translateY(-7px);
+  }
+}
+
+@keyframes network-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes network-status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+a {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network-orbit,
+  .network-globe,
+  .network-profile,
+  .network-float-card,
+  .network-status-dot {
+    animation: none;
+  }
+
+  .network-profile:hover {
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

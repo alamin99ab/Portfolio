@@ -1,103 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [navbarBackground, setNavbarBackground] = useState('bg-transparent');
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setNavbarBackground('bg-gray-800');
-      } else {
-        setNavbarBackground('bg-transparent');
-      }
-    };
+  const links = [
+    ['Home', 'home'],
+    ['About', 'about'],
+    ['Experience', 'experience'],
+    ['Education', 'education'],
+    ['Projects', 'projects'],
+    ['Skills', 'skills'],
+    ['Contact', 'contact'],
+  ];
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleMenuToggle = () => setMobileMenuOpen(!mobileMenuOpen);
-
-  const handleLinkClick = () => setMobileMenuOpen(false); 
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <nav
-      className={`${navbarBackground} fixed top-0 left-0 right-0 z-50 transition duration-300`}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <h1 className="text-3xl font-bold text-white hover:text-yellow-400 transition duration-300">
-            𝓐𝓵𝓪𝓶𝓲𝓷
-          </h1>
-          <div className="hidden md:flex space-x-6 ml-auto">
-            {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
+    <nav className="fixed inset-x-0 top-3 z-50 px-4">
+      <div className="glass-panel mx-auto max-w-7xl rounded-2xl">
+        <div className="flex min-h-16 items-center justify-between px-4 sm:px-6">
+          <a href="#home" onClick={closeMenu} className="text-lg font-bold tracking-wide text-white">
+            ALAMIN<span className="text-cyan-300">.</span>
+          </a>
+          <div className="hidden items-center gap-1 xl:flex">
+            {links.map(([label, id]) => (
               <a
-                key={item}
-                href={`#${item}`}
-                onClick={handleLinkClick}
-                className="text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md"
+                key={id}
+                href={`#${id}`}
+                className="rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white"
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {label}
               </a>
             ))}
           </div>
-
           <button
-            onClick={handleMenuToggle}
-            className="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white"
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="rounded-xl border border-white/10 p-2 text-slate-200 transition hover:bg-white/10 xl:hidden"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-controls="mobile-menu"
             aria-expanded={mobileMenuOpen}
           >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className={`${mobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-            <svg
-              className={`${mobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="m6 6 12 12M18 6 6 18" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              )}
             </svg>
           </button>
         </div>
-      </div>
-
-      <div
-        className={`${
-          mobileMenuOpen ? 'block' : 'hidden'
-        } md:hidden transition-all duration-300`}
-        id="mobile-menu"
-      >
-        <div className="space-y-1 px-2 pt-2 pb-3 bg-gray-800">
-          {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item}`}
-              onClick={handleLinkClick}
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          ))}
-        </div>
+        {mobileMenuOpen && (
+          <div id="mobile-menu" className="grid gap-1 border-t border-white/10 p-3 xl:hidden">
+            {links.map(([label, id]) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={closeMenu}
+                className="rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );

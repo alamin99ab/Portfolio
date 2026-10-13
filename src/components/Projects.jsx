@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaCode } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const projects = [
   {
@@ -35,15 +34,15 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div
-      className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4 sm:px-6 relative overflow-hidden"
+    <section
+      className="section-shell scroll-mt-24"
       id="projects"
     >
       {/* Animated background particles/circles */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-cyan-400 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-violet-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
       </div>
 
       {/* Header */}
@@ -54,7 +53,7 @@ const Projects = () => {
         className="relative z-10 text-center mb-14"
       >
         <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-200 via-sky-300 to-violet-300">
             Featured Projects
           </span>
           <span className="ml-3">🚀</span>
@@ -62,7 +61,7 @@ const Projects = () => {
         <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-base sm:text-lg">
           A curated collection of my best work – each project demonstrates my passion for clean code and user-centric design.
         </p>
-        <div className="w-20 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto mt-4 rounded-full"></div>
+        <div className="w-20 h-1 bg-gradient-to-r from-cyan-300 to-violet-300 mx-auto mt-4 rounded-full"></div>
       </motion.div>
 
       {/* Projects Grid – each project as a card with hover effect */}
@@ -74,7 +73,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
             viewport={{ once: true, margin: '-30px' }}
-            className="group bg-gray-800/30 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-yellow-400/60 shadow-xl hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-500 hover:-translate-y-2"
+            className="group glass-panel rounded-3xl overflow-hidden hover:border-cyan-200/30 transition-all duration-500 hover:-translate-y-2"
           >
             <div className="flex flex-col md:flex-row">
               {/* Left: Image with overlay */}
@@ -84,10 +83,10 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-56 md:h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent md:bg-gradient-to-r md:from-gray-900/70 md:via-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent md:bg-gradient-to-r md:from-slate-950/75 md:via-transparent"></div>
                 {/* Number badge */}
-                <div className="absolute top-4 left-4 bg-yellow-400/20 backdrop-blur-sm px-3 py-1 rounded-full border border-yellow-400/30">
-                  <span className="text-yellow-300 text-xs font-bold">
+                <div className="absolute top-4 left-4 bg-cyan-300/10 backdrop-blur-sm px-3 py-1 rounded-full border border-cyan-200/20">
+                  <span className="text-cyan-100 text-xs font-bold">
                     #{String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -96,7 +95,7 @@ const Projects = () => {
               {/* Right: Content */}
               <div className="md:w-3/5 p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-cyan-100 transition-colors duration-300">
                     {project.title}
                   </h3>
                   <p className="text-gray-300 text-sm leading-relaxed mt-3">
@@ -110,7 +109,7 @@ const Projects = () => {
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-gray-700/40 border border-gray-600/30 rounded-full text-xs font-medium text-gray-200 hover:bg-yellow-400/10 hover:border-yellow-400/40 transition-all duration-300"
+                      className="px-3 py-1 bg-white/[0.04] border border-white/10 rounded-full text-xs font-medium text-gray-200 hover:bg-cyan-300/10 hover:border-cyan-200/30 transition-all duration-300"
                     >
                       {tech}
                     </span>
@@ -123,7 +122,7 @@ const Projects = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 rounded-full text-sm font-bold shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 hover:scale-105"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-cyan-300 to-sky-200 text-slate-950 rounded-xl text-sm font-bold shadow-lg hover:shadow-cyan-300/20 transition-all duration-300 hover:scale-105"
                   >
                     <FaExternalLinkAlt className="w-3.5 h-3.5" />
                     Live Preview
@@ -146,10 +145,10 @@ const Projects = () => {
         className="relative z-10 mt-16 text-center text-gray-500 text-sm"
       >
         <p className="flex items-center justify-center gap-2">
-          <span className="text-yellow-400">✦</span> More projects under development <span className="text-yellow-400">✦</span>
+          <span className="text-cyan-300">✦</span> More projects under development <span className="text-cyan-300">✦</span>
         </p>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
